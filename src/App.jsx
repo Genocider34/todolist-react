@@ -1,37 +1,56 @@
 import React from "react";
-import InputTask from "./InputTask";
+import InputTask from "./components/InputTask";
+import TasksList from "./components/TasksList";
+import "./App.css";
 
 export default function App() {
-  const [addTask, setAddTask] = React.useState([]);
+  const [task, setTask] = React.useState([]);
 
-  function handleAddTask(task) {
+  function handleAddTask(label) {
     const newTask = {
-      task,
+      task: label,
       id: crypto.randomUUID(),
     };
 
-    const nextTask = [...addTask, newTask];
-    setAddTask(nextTask);
+    const isSpace = newTask.task.trim();
+    const isEmpty = newTask.task !== "";
+    const isDuplicate = !task.some(
+      (item) => item.task.toLowerCase() === newTask.task.toLowerCase()
+    );
+
+    if (!isDuplicate) {
+      alert(`${newTask.task} is already on the list`);
+    }
+
+    if (isEmpty && isSpace && isDuplicate) {
+      const nextTask = [...task, newTask];
+      setTask(nextTask);
+    }
   }
 
-  function handleDeleteTask() {
-    const nextTask = [...addTask];
-    nextTask.pop();
-    setAddTask(nextTask);
+  function handleDeleteTask(id) {
+    setTask(task.filter((item) => item.id !== id));
   }
 
   return (
     <>
       <header>
-        <h1>to do list</h1>
+        <h1>
+          to<span>/</span>do<span>/</span>list
+        </h1>
+        <p>
+          Number of task remaining: {task.length <= 0 ? "Empty" : task.length}
+        </p>
         <InputTask handleAddTask={handleAddTask} />
-        <button onClick={handleDeleteTask}>Delete</button>
       </header>
 
+      {/* <TasksList handleDeleteTask={handleDeleteTask} task={task} /> */}
       <div>
         <ul>
-          {addTask.map(({ task, id }) => (
-            <li key={id}>{task}</li>
+          {task.map(({ task, id }) => (
+            <li onClick={() => handleDeleteTask(id)} key={id}>
+              {task}
+            </li>
           ))}
         </ul>
       </div>

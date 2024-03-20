@@ -1,0 +1,30 @@
+input {
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+  padding: 0.2em;
+  margin: 1em;
+  transition: border-bottom 1s ease;
+  background-color: transparent;
+  color: white;
+}
+
+input:focus {
+  border-color: rgb(0, 255, 253);
+}
+
+button {
+  cursor: pointer;
+  padding: 0.5em 1em;
+  border: 1px solid #2f3b4c;
+  border-radius: 10px;
+  color: white;
+  background-color: #1e2a3c;
+  transition: 0.5s ease;
+}
+
+button:hover {
+  background-color: rgb(0, 255, 253);
+  color: black;
+  border: none;
+}
