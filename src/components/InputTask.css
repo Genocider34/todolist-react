@@ -1,3 +1,7 @@
+form {
+  margin: 1em;
+}
+
 input {
   border: none;
   border-bottom: 1px solid black;

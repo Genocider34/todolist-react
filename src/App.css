@@ -10,6 +10,7 @@ body {
 header {
   margin-top: 3em;
 }
+
 header {
   text-align: center;
 }
@@ -17,9 +18,4 @@ header {
 header span {
   color: rgb(0, 255, 253);
   font-weight: bolder;
-}
-
-li:hover {
-  cursor: pointer;
-  text-decoration: line-through rgb(0, 255, 253);
 }

@@ -1,6 +1,8 @@
 import React from "react";
 import InputTask from "./components/InputTask";
 import TasksList from "./components/TasksList";
+import TasksRemaining from "./components/TasksRemaining";
+import Header from "./components/Header";
 import "./App.css";
 
 export default function App() {
@@ -35,25 +37,12 @@ export default function App() {
   return (
     <>
       <header>
-        <h1>
-          to<span>/</span>do<span>/</span>list
-        </h1>
-        <p>
-          Number of task remaining: {task.length <= 0 ? "Empty" : task.length}
-        </p>
+        <Header />
+        <TasksRemaining task={task} />
         <InputTask handleAddTask={handleAddTask} />
       </header>
 
-      {/* <TasksList handleDeleteTask={handleDeleteTask} task={task} /> */}
-      <div>
-        <ul>
-          {task.map(({ task, id }) => (
-            <li onClick={() => handleDeleteTask(id)} key={id}>
-              {task}
-            </li>
-          ))}
-        </ul>
-      </div>
+      <TasksList handleDeleteTask={handleDeleteTask} task={task} />
     </>
   );
 }

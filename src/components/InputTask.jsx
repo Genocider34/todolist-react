@@ -2,25 +2,25 @@ import React from "react";
 import "./InputTask.css";
 
 export default function ({ handleAddTask }) {
-  const [task, setTask] = React.useState("");
+  const [addTask, setAddTask] = React.useState("");
 
   return (
     <>
       <form
         onSubmit={(event) => {
           event.preventDefault();
-          handleAddTask(task);
+          handleAddTask(addTask);
 
-          setTask("");
+          setAddTask("");
         }}
       >
         <input
           placeholder="Enter a Task"
           maxLength="20"
           type="text"
-          value={task}
+          value={addTask}
           onChange={(event) => {
-            setTask(event.target.value);
+            setAddTask(event.target.value);
           }}
         />
         <button>Add</button>

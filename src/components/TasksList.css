@@ -1,0 +1,44 @@
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li span:hover {
+  cursor: pointer;
+}
+
+article {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 960px;
+  /* border: 1px dotted pink; */
+  padding: 0.5em 0;
+}
+
+/* .border {
+  border: 1px dashed pink;
+} */
+
+.wrapper {
+  margin-bottom: 0.1em;
+  display: flex;
+  align-items: center;
+}
+
+.check-icon,
+.trash-icon,
+.edit-icon {
+  cursor: pointer;
+  font-size: 1.5em;
+  margin-right: 0.3em;
+  color: rgb(0, 255, 253);
+}
+
+.trash-icon {
+  font-size: 1.2em;
+}
+
+.active {
+  text-decoration: line-through rgb(0, 255, 253);
+}
